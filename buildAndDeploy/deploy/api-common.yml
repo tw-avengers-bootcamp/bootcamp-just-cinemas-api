@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Creates common resources that don't change from deployment to deployment of the api project.
+
+Parameters:
+  securityKeyName:
+    Type: String
+    Description: The SSH key name
+  tagName:
+    Type: String
+    Description: The training session name such as bootcamp-feb-2018 or extended-paatshala-march-2018  
+
+Resources:
+  SecurityGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties:
+      GroupName: !Join [ "-", [ "API-Box-SecurityGroup", Ref: tagName ] ]
+      GroupDescription: Allows SSH and 9090 port access to the api box.
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: '22'
+        ToPort: '22'
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: '9090'
+        ToPort: '9090'
+        CidrIp: 0.0.0.0/0
+
+  ElasticIP:
+    Type: "AWS::EC2::EIP"
+
+
+Outputs:
+  IPOfAPI:
+    Description: Public IP of the API
+    Value: !Ref ElasticIP
+    Export:
+      Name: !Join [ "-", [ "API-Box-IP", Ref: tagName ] ]

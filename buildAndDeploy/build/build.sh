@@ -16,4 +16,9 @@ cfn-create-or-update \
 ./gradlew clean build
 
 commitHash=$(git rev-parse --short HEAD)
-aws s3 cp build/libs/bootcamp-just-cinemas-api.jar s3://build-artefacts-${tagName}/bootcamp-just-cinemas-api-$commitHash.jar
+mkdir -p build/distribution
+cp build/libs/bootcamp-just-cinemas-api.jar build/distribution
+cp buildAndDeploy/deploy/Dockerfile build/distribution
+cp buildAndDeploy/deploy/docker-compose.yml build/distribution
+tar -C build/distribution -czvf build/bootcamp-just-cinemas-api-$commitHash.tar .
+aws s3 cp build/bootcamp-just-cinemas-api-$commitHash.tar s3://build-artefacts-${tagName}/bootcamp-just-cinemas-api-$commitHash.tar
