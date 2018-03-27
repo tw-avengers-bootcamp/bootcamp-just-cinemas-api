@@ -1,0 +1,11 @@
+---
+version: '2'
+services:
+  postgres-ci:
+    build:
+      context: .
+      dockerfile: CI-Dockerfile
+    image: spicinemas:ci
+    ports:
+      - "7654:5432"
+    restart: always
