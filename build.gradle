@@ -43,18 +43,3 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile ('com.h2database:h2:1.4.197')
 }
-
-
-ext {
-	local_url = 'jdbc:postgresql://localhost:7654/spicinemas'
-}
-
-flyway {
-	url = "jdbc:postgresql://${config.db_host}:${config.port}/${config.db_name}"
-	user = config.username
-	password = config.password
-	schemas = ['public']
-	locations = ["filesystem:$project.projectDir/src/main/resources/db/migration"]
-}
-
-test.dependsOn flywayClean
