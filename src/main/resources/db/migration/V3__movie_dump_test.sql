@@ -1,0 +1,1 @@
+insert into MOVIE (name, experiences, listing_type) values ('PK', 'Dolby Atmos, RDX, SUB', 'NOW_SHOWING');
