@@ -6,14 +6,9 @@ import spicinemas.api.type.MovieListingType;
 @EqualsAndHashCode(exclude = {"id"})
 public class Movie {
     private Long id;
-    @JsonProperty("title")
     private String name;
-    @JsonProperty("soundInfo")
     private String experiences;
-
     private String imageUrl;
-
-    @JsonProperty("status")
     private MovieListingType listingType;
 
     public Movie(String name, String experiences, MovieListingType listingType) {
