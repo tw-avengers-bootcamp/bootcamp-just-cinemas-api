@@ -1,2 +1,3 @@
 **/*.sql
 **/*.groovy
+src/main/resources/db/migration/V2__movie_dump.sql
