@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS Trailer (
 DROP TABLE IF EXISTS Experience CASCADE;
 CREATE TABLE IF NOT EXISTS Experience (
        experience_id serial PRIMARY KEY,
-       experience text
+       name text
 );
 
 

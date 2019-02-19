@@ -40,6 +40,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.postgresql:postgresql:9.4.1211.jre7')
 	compile('org.flywaydb:flyway-core:4.0.3')
+	testCompile group: 'org.mockito', name: 'mockito-all', version: '1.8.4'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile ('com.h2database:h2:1.4.197')
 }
@@ -50,13 +51,13 @@ String cleanflyway=System.getProperty("cleanflyway")
 
 task dropAll(){
 	apply from: "configuration.gradle"
-	if(clean.equals("true")){
+	if(cleanflyway.equals("true")){
 		flyway{
 			url="jdbc:postgresql://localhost:7654/spicinemas"
 			user="spiuser"
 			password="spiuser"
 		}
-
+		
 	}
 
 }
