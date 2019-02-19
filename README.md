@@ -16,6 +16,9 @@ To start up the project locally on a separate terminal run
 Once the postgres instance is running run  
 ```./gradlew bootRun```
 
+to reset and install all flyway scripts please use
+```./gradlew -Dcleanflyway=true dropAll ```
+
 
 ## Follow the below steps to deploy it
 
@@ -29,6 +32,7 @@ Once the postgres instance is running run
 5. You can test your API deployment by running the below command
 ```curl <your deployed ip address>/movies/now-showing``` If this print out json then your deployment has worked. Be aware, that the curl endpoint might take a while before it works. Track the API deployment via the cloudformation console. 
 5. Get the IP address of the EC2 box created to host your API and provide update in the build stage of the UI project build. You can test 
+
 
 
 
