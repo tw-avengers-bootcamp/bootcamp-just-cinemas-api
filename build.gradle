@@ -43,3 +43,24 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile ('com.h2database:h2:1.4.197')
 }
+
+String cleanflyway=System.getProperty("cleanflyway")
+
+
+
+task dropAll(){
+	apply from: "configuration.gradle"
+	if(clean.equals("true")){
+		flyway{
+			url="jdbc:postgresql://localhost:7654/spicinemas"
+			user="spiuser"
+			password="spiuser"
+		}
+
+	}
+
+}
+if(cleanflyway.equals("true")){
+	     println("droping all schemas")
+		dropAll.finalizedBy(flywayClean);
+}
