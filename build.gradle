@@ -20,6 +20,7 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'checkstyle'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 apply plugin: 'nu.studer.jooq'
@@ -46,6 +47,11 @@ dependencies {
 }
 
 String cleanflyway=System.getProperty("cleanflyway")
+
+checkstyle {
+	configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
+	toolVersion = '8.17'
+}
 
 
 
