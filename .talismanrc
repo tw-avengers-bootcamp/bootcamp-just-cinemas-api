@@ -1,1 +1,22 @@
- env.groovy
+fileignoreconfig:
+- filename: env.groovy
+  checksum: d9a673405aed1c1ff0239790857809dc88f794ca28bc1f0130029c5a503f3e39
+  ignore_detectors: []
+- filename: src/main/resources/db/migration/V1__create_movie.sql
+  checksum: b7aa73096ab177e386ab11b0551dfca59354a7df9bc99a6f3ac01b84ff3d0f8e
+  ignore_detectors: []
+- filename: src/main/resources/db/migration/V2__movie_dump.sql
+  checksum: cc55d5c3c980c4284fc21c78085ac4a77d0c51dd2f197150de82012612dbae3e
+  ignore_detectors: []
+- filename: src/main/resources/db/migration/V3__create_movie.sql
+  checksum: da8f125b4875b8fbafdf186f5a1e38803edfe9be8ffceb0c1ea5b96535e6ac5d
+  ignore_detectors: []
+- filename: src/main/resources/application-production.yml
+  checksum: 47cc737fdc014d2d6644b62f3b0ec2c369463f5957d02cf467cce5d8aa97d704
+  ignore_detectors: []
+- filename: src/main/resources/application-test.yml
+  checksum: 47a724202dca1b28280cde526bd15e4b2b471d9c19784a51db3fac96fa1ff474
+  ignore_detectors: []
+- filename: src/main/resources/application.yml
+  checksum: ebc9103b8522c8cf23d749fd7c3944deb4f04d336f3bba81dc18079b968d473f
+  ignore_detectors: []
