@@ -1,8 +1,8 @@
 package spicinemas.api.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
 import spicinemas.api.type.MovieListingType;
+
 @EqualsAndHashCode(exclude = {"id"})
 public class Movie {
     private Long id;
@@ -35,13 +35,5 @@ public class Movie {
 
     public MovieListingType getListingType() {
         return listingType;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
     }
 }

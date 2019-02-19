@@ -16,7 +16,6 @@ public class MovieRepository {
     private DSLContext dsl;
 
     public List<Movie> getNowShowingMovies() {
-
         return dsl.select()
                 .from(DSL.table("MOVIE"))
                 .fetchInto(Movie.class);
