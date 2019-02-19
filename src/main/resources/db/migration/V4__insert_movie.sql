@@ -22,9 +22,9 @@ INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (4,'https://www.yo
 INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (5,'https://www.youtube.com/watch?v=JfbxcD6biOk',5);
 INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (6,'https://www.youtube.com/watch?v=JfbxcD6biOk',6);
 
-INSERT INTO Experience(experience_id, experience) VALUES(1,'RDX, Dolby Atmos, SUB');
-INSERT INTO Experience(experience_id, experience) VALUES(2,'RDX 3D');
-INSERT INTO Experience(experience_id, experience) VALUES(3,'RDX, SUB');
+INSERT INTO Experience(experience_id, name) VALUES(1,'RDX, Dolby Atmos, SUB');
+INSERT INTO Experience(experience_id, name) VALUES(2,'RDX 3D');
+INSERT INTO Experience(experience_id, name) VALUES(3,'RDX, SUB');
 
 INSERT INTO Language(language_id, language) VALUES(1,'English');
 INSERT INTO Language(language_id, language) VALUES(2,'Hindi');

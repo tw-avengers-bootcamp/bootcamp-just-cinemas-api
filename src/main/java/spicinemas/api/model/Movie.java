@@ -1,19 +1,23 @@
 package spicinemas.api.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
-import spicinemas.api.type.MovieListingType;
-
-@EqualsAndHashCode(exclude = {"id"})
+import spicinemas.api.type.Status;
+@EqualsAndHashCode(exclude = {"movieId"})
 public class Movie {
-    private Long id;
-    private String name;
-    private String experiences;
-    private String imageUrl;
-    private MovieListingType listingType;
+    private Long movieId;
+    private String movieName;
+    private String synopsis;
+    private Integer rating;
+    private Status listingType;
+    private Experience experience;
+    private String bannerUrl;
+    private Language language;
 
-    public Movie(String name, String experiences, MovieListingType listingType) {
-        this.name = name;
-        this.experiences = experiences;
+
+    public Movie(String name, Experience experience, Status listingType) {
+        this.movieName = name;
+        this.experience = experience;
         this.listingType = listingType;
     }
 
@@ -21,19 +25,63 @@ public class Movie {
 
     }
 
-    public Long getId() {
-        return id;
+    public Long getMovieId() {
+        return movieId;
     }
 
-    public String getName() {
-        return name;
+    public String getMovieName() {
+        return movieName;
     }
 
-    public String getExperiences() {
-        return experiences;
+    public Experience getExperience() {
+        return experience;
     }
 
-    public MovieListingType getListingType() {
+    public Status getListingType() {
         return listingType;
+    }
+
+    public void setMovieId(Long movieId) {
+        this.movieId = movieId;
+    }
+
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
+    }
+
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
+
+    public void setListingType(Status listingType) {
+        this.listingType = listingType;
+    }
+
+    public void setExperiences(Experience experiences) {
+        this.experience = experiences;
+    }
+
+    public String getBannerUrl() {
+        return bannerUrl;
+    }
+
+    public void setBannerUrl(String bannerUrl) {
+        this.bannerUrl = bannerUrl;
+    }
+
+    public void setLanguage(Language language) {
+        this.language=language;
     }
 }

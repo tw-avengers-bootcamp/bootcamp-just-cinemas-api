@@ -1,5 +1,5 @@
 package spicinemas.api.type;
 
-public enum MovieListingType {
+public enum Status {
     NOW_SHOWING
 }

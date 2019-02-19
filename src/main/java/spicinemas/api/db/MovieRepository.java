@@ -12,10 +12,14 @@ import java.util.List;
 @Repository
 @Transactional
 public class MovieRepository {
-    @Autowired
+    public MovieRepository(DSLContext dsl) {
+        this.dsl = dsl;
+    }
+
     private DSLContext dsl;
 
     public List<Movie> getNowShowingMovies() {
+
         return dsl.select()
                 .from(DSL.table("MOVIE"))
                 .fetchInto(Movie.class);
@@ -23,12 +27,17 @@ public class MovieRepository {
 
     public void addMovie(Movie movie) {
         dsl.insertInto(DSL.table("MOVIE"), DSL.field("NAME"), DSL.field("EXPERIENCES"), DSL.field("LISTING_TYPE"))
-                .values(movie.getName(), movie.getExperiences(), movie.getListingType().toString())
+                .values(movie.getMovieName(), movie.getExperience(), movie.getListingType().toString())
                 .execute();
 
     }
 
+
+
+
     public Movie getMovie(String name) {
+
+
         return dsl.select(DSL.field("NAME"), DSL.field("EXPERIENCES"), DSL.field("LISTING_TYPE"))
                 .from(DSL.table("MOVIE"))
                 .where(DSL.field("MOVIE.NAME").eq(name))
