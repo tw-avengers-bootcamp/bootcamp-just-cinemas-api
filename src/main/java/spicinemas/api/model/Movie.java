@@ -1,44 +1,45 @@
 package spicinemas.api.model;
 
 import lombok.EqualsAndHashCode;
-import spicinemas.api.type.Status;
-@EqualsAndHashCode(exclude = {"movieId"})
+
+@EqualsAndHashCode(exclude = {"id"})
 public class Movie {
-    private Long movieId;
-    private String movieName;
+    private Long id;
+    private String name;
     private String synopsis;
     private Integer rating;
-    private String experience;
+    private String experiences;
     private String bannerUrl;
     private Language language;
+    private String listingType;
 
-    public Movie(String name, String experience) {
-        this.movieName = name;
-        this.experience = experience;
+    public Movie(String name, String experiences) {
+        this.name = name;
+        this.experiences = experiences;
     }
 
     public Movie() {
 
     }
 
-    public Long getMovieId() {
-        return movieId;
+    public Long getId() {
+        return id;
     }
 
-    public String getMovieName() {
-        return movieName;
+    public String getName() {
+        return name;
     }
 
-    public String getExperience() {
-        return experience;
+    public String getExperiences() {
+        return experiences;
     }
 
-    public void setMovieId(Long movieId) {
-        this.movieId = movieId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setMovieName(String movieName) {
-        this.movieName = movieName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSynopsis() {
@@ -58,7 +59,7 @@ public class Movie {
     }
 
     public void setExperiences(String experiences) {
-        this.experience = experiences;
+        this.experiences = experiences;
     }
 
     public String getBannerUrl() {
@@ -71,5 +72,13 @@ public class Movie {
 
     public void setLanguage(Language language) {
         this.language=language;
+    }
+
+    public String getListingType() {
+        return listingType;
+    }
+
+    public void setListingType(String listingType) {
+        this.listingType = listingType;
     }
 }

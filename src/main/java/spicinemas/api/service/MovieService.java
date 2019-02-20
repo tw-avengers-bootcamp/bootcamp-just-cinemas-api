@@ -8,7 +8,6 @@ import spicinemas.api.db.StatusRepository;
 import spicinemas.api.db.entities.LocationEntity;
 import spicinemas.api.db.entities.MovieEntity;
 import spicinemas.api.db.entities.StatusEntity;
-import spicinemas.api.model.Experience;
 import spicinemas.api.model.Language;
 import spicinemas.api.model.Movie;
 
@@ -34,8 +33,8 @@ public class MovieService {
     public Movie getMovieDetails(long movie_id) {
         MovieEntity movieEntity = moviesRepository.findOne(movie_id);
         Movie movie = new Movie();
-        movie.setMovieId(movieEntity.getId());
-        movie.setMovieName(movieEntity.getName());
+        movie.setId(movieEntity.getId());
+        movie.setName(movieEntity.getName());
         movie.setSynopsis(movieEntity.getSynopsis());
         //LanguageEntity languageEntity = movieEntity.getLanguage();
         Language language = new Language();
@@ -55,12 +54,13 @@ public class MovieService {
 
         return movieEntities.stream().map((m) -> {
            Movie movie = new Movie();
-           movie.setMovieName(m.getName());
-           movie.setMovieId(m.getId());
+           movie.setName(m.getName());
+           movie.setId(m.getId());
            movie.setSynopsis(m.getSynopsis());
            movie.setRating(m.getRating());
            movie.setBannerUrl(m.getBanner());
            movie.setExperiences(m.getExperienceEntity().getType());
+           movie.setListingType(m.getStatus().getName());
 
            return movie;
         }).collect(Collectors.toList());
