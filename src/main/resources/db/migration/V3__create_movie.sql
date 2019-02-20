@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS Status CASCADE;
 CREATE TABLE IF NOT EXISTS Status (
        status_id serial PRIMARY KEY,
-       status VARCHAR(25) CHECK (status IN ('now showing', 'upcoming')) DEFAULT 'upcoming'
+       status VARCHAR(25) CHECK (status IN ('now showing', 'upcoming'))
 );
 
 DROP TABLE IF EXISTS Location CASCADE;
@@ -32,20 +32,21 @@ DROP TABLE IF EXISTS Still CASCADE;
 CREATE TABLE IF NOT EXISTS Still (
        still_id serial PRIMARY KEY,
        still_url text,
-       movie_id serial
+       movie_id INTEGER REFERENCES movie
 );
 
 DROP TABLE IF EXISTS Trailer CASCADE;
 CREATE TABLE IF NOT EXISTS Trailer (
        trailer_id serial PRIMARY KEY,
        trailer_url text,
-       movie_id serial
+       movie_id INTEGER REFERENCES movie
 );
 
 DROP TABLE IF EXISTS Experience CASCADE;
 CREATE TABLE IF NOT EXISTS Experience (
        experience_id serial PRIMARY KEY,
-       name text
+       name text,
+       movie_id INTEGER REFERENCES movie
 );
 
 
