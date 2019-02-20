@@ -7,10 +7,6 @@ INSERT INTO Location(id, name) VALUES (3, 'Mumbai');
 INSERT INTO Location(id, name) VALUES (4, 'Madurai');
 
 
-INSERT INTO Experience(id, type) VALUES(1,'RDX, Dolby Atmos, SUB');
-INSERT INTO Experience(id, type) VALUES(2,'RDX 3D');
-INSERT INTO Experience(id, type) VALUES(3,'RDX, SUB');
-
 INSERT INTO Language(id, name) VALUES(1,'English');
 INSERT INTO Language(id, name) VALUES(2,'Hindi');
 INSERT INTO Language(id, name) VALUES(3,'Tamil');
@@ -43,6 +39,10 @@ INSERT INTO Movie_Location(movie_id, location_id) VALUES(1, 1);
 INSERT INTO Movie_Location(movie_id, location_id) VALUES(2, 2);
 INSERT INTO Movie_Location(movie_id, location_id) VALUES(1, 3);
 INSERT INTO Movie_Location(movie_id, location_id) VALUES(3, 4);
+
+INSERT INTO Experience(id, type,movie_id) VALUES(1,'RDX, Dolby Atmos, SUB',1);
+INSERT INTO Experience(id, type,movie_id) VALUES(2,'RDX 3D',2);
+INSERT INTO Experience(id, type,movie_id) VALUES(3,'RDX, SUB',3);
 
 
 INSERT INTO Still(id, url, movie_id) VALUES (1,'https://img.spicinemas.in/resources/images/movies/Kabali/150x207.jpg',1);

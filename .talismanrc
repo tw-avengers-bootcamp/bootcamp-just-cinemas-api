@@ -1,28 +1,16 @@
 fileignoreconfig:
-- filename: src/main/resources/db/migration/V4__insert_movie.sql
-  checksum: 140ad2699cf0e91a8e900a896b8f998be74470f19b59827670ce459d76a81b67
-  ignore_detectors: []
-- filename: src/main/resources/application-test.yml
-  checksum: 47a724202dca1b28280cde526bd15e4b2b471d9c19784a51db3fac96fa1ff474
-  ignore_detectors: []
 - filename: src/main/resources/application.yml
-  checksum: ebc9103b8522c8cf23d749fd7c3944deb4f04d336f3bba81dc18079b968d473f
-  ignore_detectors: []
-- filename: env.groovy
-  checksum: d9a673405aed1c1ff0239790857809dc88f794ca28bc1f0130029c5a503f3e39
-  ignore_detectors: []
-- filename: src/main/resources/db/migration/V1__create_movie.sql
-  checksum: b7aa73096ab177e386ab11b0551dfca59354a7df9bc99a6f3ac01b84ff3d0f8e
+  checksum: 767aeaf053453726b00aa0bbaad1f53d11a1c97d9e6bb7c27b72f814cce9226a
   ignore_detectors: []
 - filename: src/main/resources/db/migration/V3__create_movie.sql
-  checksum: 337a0a5e9e328f6ba690b490aa13a5064cb4c0f000f476513fec2b1f685e9f39
+  checksum: b48a17ee97320e4a8b880850e45f240052b3598b9df4a6b9a4010f758645e406
   ignore_detectors: []
-- filename: src/main/resources/db/migration/V2__movie_dump.sql
-  checksum: cc55d5c3c980c4284fc21c78085ac4a77d0c51dd2f197150de82012612dbae3e
+- filename: src/main/resources/db/migration/V4__insert_movie.sql
+  checksum: eda697e442a634b68c9130d9382862c15e9632146e890f4dea73bdddefca08d4
   ignore_detectors: []
 - filename: build.gradle
-  checksum: 1ba56e930ba920e6f31de46a7d551ef7afe9d92fcbac4d127cb3bc275fffc593
+  checksum: 01ab77193fad7e1112c6a59b65a86206ab37ba36814436c68c3ce0652e514b35
   ignore_detectors: []
-- filename: src/main/resources/application-production.yml
-  checksum: 47cc737fdc014d2d6644b62f3b0ec2c369463f5957d02cf467cce5d8aa97d704
+- filename: src/main/resources/application-test.yml
+  checksum: 55e0cf53a560dd3b7b12ca06543da8426d2534add854098dd694ac304e716eec
   ignore_detectors: []

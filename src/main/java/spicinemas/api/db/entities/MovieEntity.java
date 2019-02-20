@@ -36,9 +36,18 @@ public class MovieEntity {
       joinColumns = @JoinColumn( name="movie_id"),
       inverseJoinColumns = @JoinColumn( name="location_id")
 
-
   )
   private Set<LocationEntity> locations;
+
+  @OneToMany(fetch = FetchType.EAGER,mappedBy = "movieEntity")
+  private Set<TrailerEntity> trailers;
+
+  @OneToMany(fetch = FetchType.EAGER,mappedBy = "movieEntity")
+  private Set<StillEntity> stills;
+
+  @OneToOne(mappedBy = "movieEntity")
+  private ExperienceEntity experienceEntity;
+
 
 
 
@@ -88,5 +97,29 @@ public class MovieEntity {
 
   public void setSynopsis(String synopsis) {
     this.synopsis = synopsis;
+  }
+
+  public Set<TrailerEntity> getTrailers() {
+    return trailers;
+  }
+
+  public void setTrailers(Set<TrailerEntity> trailers) {
+    this.trailers = trailers;
+  }
+
+  public Set<StillEntity> getStills() {
+    return stills;
+  }
+
+  public void setStills(Set<StillEntity> stills) {
+    this.stills = stills;
+  }
+
+  public ExperienceEntity getExperienceEntity() {
+    return experienceEntity;
+  }
+
+  public void setExperienceEntity(ExperienceEntity experienceEntity) {
+    this.experienceEntity = experienceEntity;
   }
 }
