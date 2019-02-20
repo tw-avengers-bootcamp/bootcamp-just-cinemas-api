@@ -42,7 +42,7 @@ to reset and install all flyway scripts please use
 ## /locations get api
 
 1. resposnse:
-```
+```json
 [
     {
         "id": 1,
@@ -66,7 +66,7 @@ to reset and install all flyway scripts please use
 ## /v1/movies/{locationId}/{status}
 
 1. response:
-```concept
+```json
 [
     {
         "id": 1,
