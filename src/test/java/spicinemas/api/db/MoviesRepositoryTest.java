@@ -85,7 +85,7 @@ public class MoviesRepositoryTest {
   }
 
   @Test
-  public void checkfindByLocationAndStatus(){
+  public void checkfindByLocationLanguageAndStatus(){
 
     Set<LocationEntity> locationEntities =locationRepository.findByName("Chennai");
     Assert.assertNotNull(locationEntities.size()>0);
@@ -95,7 +95,18 @@ public class MoviesRepositoryTest {
       StatusEntity statusEntity = statusRepository.findOne(1L);
       MovieEntity movieEntity = moviesRepository.findByLocationsAndLanguageAndStatus(locationEntities,tamil, statusEntity).get(0);
       Assert.assertNotNull(movieEntity);
+  }
 
+  @Test
+  public void checkfindByLocationAndStatus(){
 
+    Set<LocationEntity> locationEntities =locationRepository.findByName("Chennai");
+    Assert.assertNotNull(locationEntities.size()>0);
+    List<LanguageEntity> languageEntities = languageRepository.findByName("Tamil");
+    Assert.assertNotNull(languageEntities.size()>0);
+    LanguageEntity tamil=languageEntities.get(0);
+    StatusEntity statusEntity = statusRepository.findOne(1L);
+    MovieEntity movieEntity = moviesRepository.findByLocationsAndStatus(locationEntities, statusEntity).get(0);
+    Assert.assertNotNull(movieEntity);
   }
 }

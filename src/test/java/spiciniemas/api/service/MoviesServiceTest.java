@@ -7,11 +7,10 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.mockito.Mockito;
 import org.springframework.test.context.ContextConfiguration;
+import spicinemas.api.db.LocationRepository;
 import spicinemas.api.db.MoviesRepository;
-import spicinemas.api.db.entities.LanguageEntity;
-import spicinemas.api.db.entities.LocationEntity;
-import spicinemas.api.db.entities.MovieEntity;
-import spicinemas.api.db.entities.StatusEntity;
+import spicinemas.api.db.StatusRepository;
+import spicinemas.api.db.entities.*;
 import spicinemas.api.service.MovieService;
 
 import java.util.ArrayList;
@@ -22,15 +21,21 @@ import java.util.Set;
 @ContextConfiguration(classes = MovieService.class)
 public class MoviesServiceTest {
     MoviesRepository moviesRepository;
+     LocationRepository locationRepository;
+     StatusRepository statusRepository;
 
     @Before
     public void init() {
         moviesRepository = Mockito.mock(MoviesRepository.class);
+        locationRepository =Mockito.mock(LocationRepository.class);
+        statusRepository=Mockito.mock(StatusRepository.class);
         Set<LocationEntity> locationEntities = new HashSet<>();
-        LanguageEntity languageEntity = Mockito.mock(LanguageEntity.class);
-        StatusEntity statusEntity = Mockito.mock(StatusEntity.class);
+        LanguageEntity languageEntity = new LanguageEntity();
+        StatusEntity statusEntity =new StatusEntity();
         LocationEntity locationEntity = new LocationEntity();
-        MovieEntity movieEntity = Mockito.mock(MovieEntity.class);
+        MovieEntity movieEntity = new MovieEntity();
+        ExperienceEntity experienceEntity=new ExperienceEntity();
+        experienceEntity.setType("test");
         languageEntity.setId(1l);
         languageEntity.setName("Tamil");
         statusEntity.setId(1l);
@@ -45,15 +50,23 @@ public class MoviesServiceTest {
         movieEntity.setLanguage(languageEntity);
         movieEntity.setLocations(locationEntities);
         movieEntity.setStatus(statusEntity);
+        movieEntity.setExperienceEntity(experienceEntity);
 
         Mockito.when(moviesRepository.findOne(1l)).thenReturn(movieEntity);
 
     }
 
     @Test
-    public void testGetMovieDetails() {
-        MovieService movieService = new MovieService(moviesRepository);
-        Assert.assertNotNull(movieService.getMovieDetails(1l));
+    public void shouldTestValidMovieDetails() {
+        MovieService movieService = new MovieService(moviesRepository,locationRepository,statusRepository);
+        Assert.assertEquals(movieService.getMovieDetails(1L).getMovieName(),"Kabaali");
+        Assert.assertEquals(movieService.getMovieDetails(1L).getSynopsis(),"abcd synopsis");
+    }
 
+    @Test
+    public void shouldTestInvalidMovieDetails(){
+        MovieService movieService = new MovieService(moviesRepository,locationRepository,statusRepository);
+        Assert.assertNotEquals(movieService.getMovieDetails(1l).getMovieName(),"Kabali");
+        Assert.assertNotEquals(movieService.getMovieDetails(1l).getSynopsis(),"some synopsis");
     }
 }
