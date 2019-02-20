@@ -15,6 +15,7 @@ import spicinemas.api.model.Status;
 @Repository
 public interface MoviesRepository extends CrudRepository<MovieEntity,Long> {
 
-  public List<MovieEntity> findByLocationsAndLanguageAndStatus(Set<LocationEntity> locations, LanguageEntity language,StatusEntity status);
+  public List<MovieEntity> findByLocationsAndLanguageAndStatus(Set<LocationEntity> locations, LanguageEntity language, StatusEntity status);
+  public List<MovieEntity> findByLocationsAndStatus(Set<LocationEntity> locations, StatusEntity status);
 
 }

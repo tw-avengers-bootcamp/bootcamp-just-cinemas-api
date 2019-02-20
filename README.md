@@ -62,3 +62,19 @@ to reset and install all flyway scripts please use
     }
 ]
 ```
+
+## /v1/movies/{locationId}/{status}
+
+1. response:
+```concept
+[
+    {
+        "movieId": 1,
+        "movieName": "Kabali",
+        "synopsis": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tortor est, feugiat sit amet sagittis nec, viverra vehicula orci.",
+        "rating": 5,
+        "experience": "RDX, Dolby Atmos, SUB",
+        "bannerUrl": "https://img.spicinemas.in/resources/images/movies/Kabali/1000x320.jpg"
+    }
+]
+```

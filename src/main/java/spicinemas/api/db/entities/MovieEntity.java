@@ -2,14 +2,8 @@ package spicinemas.api.db.entities;
 
 import java.util.List;
 import java.util.Set;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+
 @Entity(name = "movie")
 public class MovieEntity {
 
@@ -17,9 +11,12 @@ public class MovieEntity {
   @GeneratedValue
   private Long id;
 
-
+  private Integer rating;
   private String name;
   private String synopsis;
+
+  @Column(name = "banner_url")
+  private String banner;
 
   @JoinColumn(name = "language_id")
   @OneToOne
@@ -47,9 +44,6 @@ public class MovieEntity {
 
   @OneToOne(mappedBy = "movieEntity")
   private ExperienceEntity experienceEntity;
-
-
-
 
   public Long getId() {
     return id;
@@ -121,5 +115,21 @@ public class MovieEntity {
 
   public void setExperienceEntity(ExperienceEntity experienceEntity) {
     this.experienceEntity = experienceEntity;
+  }
+
+  public Integer getRating() {
+    return rating;
+  }
+
+  public void setRating(Integer rating) {
+    this.rating = rating;
+  }
+
+  public String getBanner() {
+    return banner;
+  }
+
+  public void setBanner(String banner) {
+    this.banner = banner;
   }
 }

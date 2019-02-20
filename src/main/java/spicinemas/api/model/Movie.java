@@ -8,16 +8,13 @@ public class Movie {
     private String movieName;
     private String synopsis;
     private Integer rating;
-    private Status listingType;
-    private Experience experience;
+    private String experience;
     private String bannerUrl;
     private Language language;
 
-
-    public Movie(String name, Experience experience, Status listingType) {
+    public Movie(String name, String experience) {
         this.movieName = name;
         this.experience = experience;
-        this.listingType = listingType;
     }
 
     public Movie() {
@@ -32,12 +29,8 @@ public class Movie {
         return movieName;
     }
 
-    public Experience getExperience() {
+    public String getExperience() {
         return experience;
-    }
-
-    public Status getListingType() {
-        return listingType;
     }
 
     public void setMovieId(Long movieId) {
@@ -64,11 +57,7 @@ public class Movie {
         this.rating = rating;
     }
 
-    public void setListingType(Status listingType) {
-        this.listingType = listingType;
-    }
-
-    public void setExperiences(Experience experiences) {
+    public void setExperiences(String experiences) {
         this.experience = experiences;
     }
 
