@@ -7,21 +7,6 @@ INSERT INTO Location(location_id, location) VALUES (3, 'Mumbai');
 INSERT INTO Location(location_id, location) VALUES (4, 'Madurai');
 
 
-INSERT INTO Still(still_id, still_url, movie_id) VALUES (1,'https://img.spicinemas.in/resources/images/movies/Kabali/150x207.jpg',1);
-INSERT INTO Still(still_id, still_url, movie_id) VALUES (2,'https://img.spicinemas.in/resources/images/movies/Banjo/150x207.jpg',2);
-INSERT INTO Still(still_id, still_url, movie_id) VALUES (3,'https://img.spicinemas.in/resources/images/movies/Suicide/150x207.jpg',3);
-INSERT INTO Still(still_id, still_url, movie_id) VALUES (4,'https://img.spicinemas.in/resources/images/movies/Pelli/150x207.jpg',4);
-INSERT INTO Still(still_id, still_url, movie_id) VALUES (5,'https://img.spicinemas.in/resources/images/movies/Pink/150x207.jpg',5);
-INSERT INTO Still(still_id, still_url, movie_id) VALUES (6,'https://img.spicinemas.in/resources/images/movies/Remo/150x207.jpg',6);
-
-
-INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (1,'https://www.youtube.com/watch?v=JfbxcD6biOk',1);
-INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (2,'https://www.youtube.com/watch?v=JfbxcD6biOk',2);
-INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (3,'https://www.youtube.com/watch?v=JfbxcD6biOk',3);
-INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (4,'https://www.youtube.com/watch?v=JfbxcD6biOk',4);
-INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (5,'https://www.youtube.com/watch?v=JfbxcD6biOk',5);
-INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (6,'https://www.youtube.com/watch?v=JfbxcD6biOk',6);
-
 INSERT INTO Experience(experience_id, name) VALUES(1,'RDX, Dolby Atmos, SUB');
 INSERT INTO Experience(experience_id, name) VALUES(2,'RDX 3D');
 INSERT INTO Experience(experience_id, name) VALUES(3,'RDX, SUB');
@@ -58,3 +43,19 @@ INSERT INTO Movie_Location(movie_id, location_id) VALUES(1, 1);
 INSERT INTO Movie_Location(movie_id, location_id) VALUES(2, 2);
 INSERT INTO Movie_Location(movie_id, location_id) VALUES(1, 3);
 INSERT INTO Movie_Location(movie_id, location_id) VALUES(3, 4);
+
+
+INSERT INTO Still(still_id, still_url, movie_id) VALUES (1,'https://img.spicinemas.in/resources/images/movies/Kabali/150x207.jpg',1);
+INSERT INTO Still(still_id, still_url, movie_id) VALUES (2,'https://img.spicinemas.in/resources/images/movies/Banjo/150x207.jpg',2);
+INSERT INTO Still(still_id, still_url, movie_id) VALUES (3,'https://img.spicinemas.in/resources/images/movies/Suicide/150x207.jpg',3);
+INSERT INTO Still(still_id, still_url, movie_id) VALUES (4,'https://img.spicinemas.in/resources/images/movies/Pelli/150x207.jpg',4);
+INSERT INTO Still(still_id, still_url, movie_id) VALUES (5,'https://img.spicinemas.in/resources/images/movies/Pink/150x207.jpg',5);
+INSERT INTO Still(still_id, still_url, movie_id) VALUES (6,'https://img.spicinemas.in/resources/images/movies/Remo/150x207.jpg',6);
+
+
+INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (1,'https://www.youtube.com/watch?v=JfbxcD6biOk',1);
+INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (2,'https://www.youtube.com/watch?v=JfbxcD6biOk',2);
+INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (3,'https://www.youtube.com/watch?v=JfbxcD6biOk',3);
+INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (4,'https://www.youtube.com/watch?v=JfbxcD6biOk',4);
+INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (5,'https://www.youtube.com/watch?v=JfbxcD6biOk',5);
+INSERT INTO Trailer(trailer_id, trailer_url, movie_id) VALUES (6,'https://www.youtube.com/watch?v=JfbxcD6biOk',6);
