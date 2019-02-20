@@ -1,10 +1,10 @@
-INSERT INTO Status(id, status) VALUES (1, 'now showing');
-INSERT INTO Status(id, status) VALUES (2, 'upcoming');
+INSERT INTO Status(id, type) VALUES (1, 'now showing');
+INSERT INTO Status(id, type) VALUES (2, 'upcoming');
 
-INSERT INTO Location(id, location) VALUES (1, 'Chennai');
-INSERT INTO Location(id, location) VALUES (2, 'Bangalore');
-INSERT INTO Location(id, location) VALUES (3, 'Mumbai');
-INSERT INTO Location(id, location) VALUES (4, 'Madurai');
+INSERT INTO Location(id, name) VALUES (1, 'Chennai');
+INSERT INTO Location(id, name) VALUES (2, 'Bangalore');
+INSERT INTO Location(id, name) VALUES (3, 'Mumbai');
+INSERT INTO Location(id, name) VALUES (4, 'Madurai');
 
 
 INSERT INTO Experience(id, type) VALUES(1,'RDX, Dolby Atmos, SUB');

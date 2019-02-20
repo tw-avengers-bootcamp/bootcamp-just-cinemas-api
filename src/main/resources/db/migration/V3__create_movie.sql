@@ -1,13 +1,13 @@
 DROP TABLE IF EXISTS Status CASCADE;
 CREATE TABLE IF NOT EXISTS Status (
        id serial PRIMARY KEY,
-       status VARCHAR(25) CHECK (status IN ('now showing', 'upcoming'))
+       type VARCHAR(25) CHECK (type IN ('now showing', 'upcoming'))
 );
 
 DROP TABLE IF EXISTS Location CASCADE;
 CREATE TABLE IF NOT EXISTS Location (
        id serial PRIMARY KEY,
-       location VARCHAR(50)
+       name VARCHAR(50)
 );
 
 DROP TABLE IF EXISTS LANGUAGE CASCADE;
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS Movie_Location (
 ---trailer,stills
 
 /*
-DROP TABLE IF EXISTS Status CASCADE;
+DROP TABLE IF EXISTS StatusRepository CASCADE;
 DROP TABLE IF EXISTS Location CASCADE;
 DROP TABLE IF EXISTS LANGUAGE CASCADE;
 DROP TABLE IF EXISTS Movie CASCADE;
