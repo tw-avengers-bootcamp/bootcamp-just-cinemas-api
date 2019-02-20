@@ -38,3 +38,27 @@ to reset and install all flyway scripts please use
 
 
 
+
+## /locations get api
+
+1. resposnse:
+```
+[
+    {
+        "id": 1,
+        "name": "Chennai"
+    },
+    {
+        "id": 2,
+        "name": "Bangalore"
+    },
+    {
+        "id": 3,
+        "name": "Mumbai"
+    },
+    {
+        "id": 4,
+        "name": "Madurai"
+    }
+]
+```

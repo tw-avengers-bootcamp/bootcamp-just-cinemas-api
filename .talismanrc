@@ -1,16 +1,4 @@
 fileignoreconfig:
-- filename: src/main/resources/application.yml
-  checksum: 767aeaf053453726b00aa0bbaad1f53d11a1c97d9e6bb7c27b72f814cce9226a
-  ignore_detectors: []
-- filename: src/main/resources/db/migration/V3__create_movie.sql
-  checksum: b48a17ee97320e4a8b880850e45f240052b3598b9df4a6b9a4010f758645e406
-  ignore_detectors: []
 - filename: src/main/resources/db/migration/V4__insert_movie.sql
-  checksum: eda697e442a634b68c9130d9382862c15e9632146e890f4dea73bdddefca08d4
-  ignore_detectors: []
-- filename: build.gradle
-  checksum: 01ab77193fad7e1112c6a59b65a86206ab37ba36814436c68c3ce0652e514b35
-  ignore_detectors: []
-- filename: src/main/resources/application-test.yml
-  checksum: 55e0cf53a560dd3b7b12ca06543da8426d2534add854098dd694ac304e716eec
+  checksum: 03a3261b06dfc3665a4b9a75ba141a6ac30287ef2a655a3a6f28320ec2625299
   ignore_detectors: []
