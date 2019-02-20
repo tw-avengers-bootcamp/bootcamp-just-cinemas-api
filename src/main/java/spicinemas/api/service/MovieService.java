@@ -7,7 +7,6 @@ import spicinemas.api.db.StatusRepository;
 import spicinemas.api.db.entities.LocationEntity;
 import spicinemas.api.db.entities.MovieEntity;
 import spicinemas.api.db.entities.StatusEntity;
-import spicinemas.api.model.Experience;
 import spicinemas.api.model.Movie;
 
 import java.util.HashSet;
@@ -37,12 +36,13 @@ public class MovieService {
 
         return movieEntities.stream().map((m) -> {
            Movie movie = new Movie();
-           movie.setMovieName(m.getName());
-           movie.setMovieId(m.getId());
+           movie.setName(m.getName());
+           movie.setId(m.getId());
            movie.setSynopsis(m.getSynopsis());
            movie.setRating(m.getRating());
            movie.setBannerUrl(m.getBanner());
            movie.setExperiences(m.getExperienceEntity().getType());
+           movie.setListingType(m.getStatus().getName());
 
            return movie;
         }).collect(Collectors.toList());
