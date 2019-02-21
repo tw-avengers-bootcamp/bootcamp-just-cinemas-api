@@ -88,6 +88,7 @@ public class MovieService {
            movie.setSynopsis(m.getSynopsis());
            movie.setRating(m.getRating());
            movie.setBannerUrl(m.getBanner());
+            movie.setIconUrl(m.getIconUrl());
            movie.setExperiences(m.getExperienceEntity().getType());
            movie.setListingType(m.getStatus().getName());
 

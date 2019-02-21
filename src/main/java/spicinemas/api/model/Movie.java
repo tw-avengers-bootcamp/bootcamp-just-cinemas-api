@@ -18,6 +18,7 @@ public class Movie {
     private String listingType;
     private List<Still> stills;
     private List<Trailer> trailers;
+    private String iconUrl;
 
     public Movie(String name, String experiences) {
         this.name = name;
@@ -102,5 +103,13 @@ public class Movie {
 
     public void setTrailers(List<Trailer> trailers) {
         this.trailers = trailers;
+    }
+
+    public String getIconUrl() {
+        return iconUrl;
+    }
+
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl;
     }
 }

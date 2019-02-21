@@ -14,6 +14,7 @@ public class MovieEntity {
   private Integer rating;
   private String name;
   private String synopsis;
+  private String iconUrl;
 
   @Column(name = "banner_url")
   private String banner;
@@ -131,5 +132,13 @@ public class MovieEntity {
 
   public void setBanner(String banner) {
     this.banner = banner;
+  }
+
+  public String getIconUrl() {
+    return iconUrl;
+  }
+
+  public void setIconUrl(String iconUrl) {
+    this.iconUrl = iconUrl;
   }
 }
