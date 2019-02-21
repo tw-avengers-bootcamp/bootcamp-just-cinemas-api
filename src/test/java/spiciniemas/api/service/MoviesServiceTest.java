@@ -59,14 +59,14 @@ public class MoviesServiceTest {
     @Test
     public void shouldTestValidMovieDetails() {
         MovieService movieService = new MovieService(moviesRepository,locationRepository,statusRepository);
-        Assert.assertEquals(movieService.getMovieDetails(1L).getMovieName(),"Kabaali");
+        Assert.assertEquals(movieService.getMovieDetails(1L).getName(),"Kabaali");
         Assert.assertEquals(movieService.getMovieDetails(1L).getSynopsis(),"abcd synopsis");
     }
 
     @Test
     public void shouldTestInvalidMovieDetails(){
         MovieService movieService = new MovieService(moviesRepository,locationRepository,statusRepository);
-        Assert.assertNotEquals(movieService.getMovieDetails(1l).getMovieName(),"Kabali");
-        Assert.assertNotEquals(movieService.getMovieDetails(1l).getSynopsis(),"some synopsis");
+        Assert.assertNotEquals(movieService.getMovieDetails(1L).getName(),"Kabali");
+        Assert.assertNotEquals(movieService.getMovieDetails(1L).getSynopsis(),"some synopsis");
     }
 }
