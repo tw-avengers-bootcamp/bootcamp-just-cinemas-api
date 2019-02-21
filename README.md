@@ -1,26 +1,43 @@
-#Explanation
+# Just Cinemas API
+
+## Explanation
 
 https://medium.com/@readsethu/jooq-flyway-spring-boot-and-gradle-44a8d3f289#.noa8xg74v
 
+## Prerequisites
 
-# Just Cinemas API
+- Oracle Java 1.8
+- Docker
 
-To build locally run  
-```./gradlew clean build```
+## Building locally
 
-To run unit test locally  
-```./gradlew clean test```
+To build run
+```
+./gradlew clean build
+```
 
-To start up the project locally on a separate terminal run
-```docker-compose -f docker-dev-db/docker-compose.yml up```  
-Once the postgres instance is running run  
-```./gradlew bootRun```
+To run unit tests
+```
+./gradlew clean test
+```
 
-to reset and install all flyway scripts please use
-```./gradlew -Dcleanflyway=true dropAll ```
+To start up the project on a *separate terminal* run
+```
+docker-compose -f docker-dev-db/docker-compose.yml up
+```
+
+Once the postgres instance is running run the application in ```localhost:9000``` by using the following command:
+```
+./gradlew bootRun
+```
+
+To reset and install all Flyway scripts please use
+```
+./gradlew -Dcleanflyway=true dropAll 
+```
 
 
-## Follow the below steps to deploy it
+## Deployment
 
 1. Fork the repository
 2. Add your team members as collaborators to the forked repo.
@@ -30,14 +47,13 @@ to reset and install all flyway scripts please use
     3. Change the deploy job script - ```sh buildAndDeploy/deploy/deploy.sh team1 sethu-origin-key-pair``` to ```buildAndDeploy/deploy/deploy.sh <your team name> <your ssh key name>```. You need to create an ssh key pair under AWS EC2 in the aws console. You need to do this to log on to the EC2 box in case you need to debug something. Create and save it locally. You can use the same SSH key created for the gocd box here as well.
 4. Then follow the instruction on the https://github.com/Sethuraman/bootcamp-gocdinfra to complete the deployment
 5. You can test your API deployment by running the below command
-```curl <your deployed ip address>/movies/now-showing``` If this print out json then your deployment has worked. Be aware, that the curl endpoint might take a while before it works. Track the API deployment via the cloudformation console. 
+```
+curl <your deployed ip address>/movies/now-showing
+``` 
+If this print out json then your deployment has worked. Be aware, that the curl endpoint might take a while before it works. Track the API deployment via the cloudformation console. 
 5. Get the IP address of the EC2 box created to host your API and provide update in the build stage of the UI project build. You can test 
 
-
-
-
-
-
+# Just Cinemas API
 
 ## /locations get api
 
