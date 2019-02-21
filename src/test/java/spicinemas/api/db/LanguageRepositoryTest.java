@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import spicinemas.SpiCinemasApplication;
+import spicinemas.api.db.entities.LanguageEntity;
 
 
 @RunWith(SpringRunner.class)
@@ -17,12 +18,18 @@ import spicinemas.SpiCinemasApplication;
 public class LanguageRepositoryTest {
 
   @Autowired
+  private
   LanguageRepository languageRepository;
 
 
   @Test
   public void testLanguageDataIsLoaded(){
-    Assert.assertTrue(languageRepository.count()>0);
+    LanguageEntity languageEntity = new LanguageEntity();
+    languageEntity.setId(1L);
+    languageEntity.setName("Tamil");
+    languageRepository.save(languageEntity);
+    Assert.assertNotNull(languageRepository.findOne(1L));
+    Assert.assertEquals("Tamil",languageRepository.findOne(1L).getName());
   }
 
 

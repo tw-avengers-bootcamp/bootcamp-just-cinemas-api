@@ -26,13 +26,17 @@ import spicinemas.api.model.Language;
 public class MoviesRepositoryTest {
 
   @Autowired
+  private
   MoviesRepository moviesRepository;
   @Autowired
+  private
   LanguageRepository languageRepository;
 
   @Autowired
+  private
   LocationRepository locationRepository;
   @Autowired
+  private
   StatusRepository statusRepository;
 
   @Test
@@ -42,29 +46,26 @@ public class MoviesRepositoryTest {
 
   @Test
   public void checkStatus(){
-    Assert.assertTrue(moviesRepository.findOne(1L).getStatus()!=null);
+    Assert.assertNotNull(moviesRepository.findOne(1L));
+    Assert.assertEquals(moviesRepository.findOne(1L).getStatus().getName(),"now showing");
   }
 
   @Test
   public void checkForLocation(){
 
+    Set<LocationEntity> locationEntity = new HashSet<>();
+    locationEntity.add(locationRepository.findOne(1L));
+
     MovieEntity movieEntity=new MovieEntity();
-    LanguageEntity languageEntity =new LanguageEntity();
     movieEntity.setLanguage(languageRepository.findOne(1L));
     movieEntity.setName("test");
     movieEntity.setSynopsis("test");
-    movieEntity.setLocations(new HashSet(){
-      @Override
-      public boolean add(Object o) {
-        return this.add(locationRepository.findOne(1L));
-
-      }
-    });
+    movieEntity.setLocations(locationEntity);
 
 
     moviesRepository.save(movieEntity);
+    Assert.assertNotNull(moviesRepository.findOne(1L).getLocations());
     Assert.assertTrue(moviesRepository.findOne(1L).getLocations().size()>0);
-    Assert.assertTrue(moviesRepository.findOne(1L).getLocations()!=null);
   }
 
   @Test

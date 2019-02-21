@@ -17,19 +17,20 @@ import java.util.List;
 @ActiveProfiles("test")
 public class StatusRepositoryTest {
 
-  @Autowired
-  StatusRepository statusRepository;
+    @Autowired
+    private
+    StatusRepository statusRepository;
 
-  @Test
-  public void testIfStatusDataIsLoaded(){
-    Assert.assertTrue(statusRepository.count()>0);
-  }
+    @Test
+    public void testIfStatusDataIsLoaded() {
+        Assert.assertTrue(statusRepository.count() > 0);
+    }
 
-  @Test
-  public void testFindByName() {
-    List<StatusEntity> statuses  = statusRepository.findByType("upcoming");
-    Assert.assertNotNull(statuses);
-    Assert.assertEquals(statuses.get(0).getName(), "upcoming");
-  }
+    @Test
+    public void testFindByName() {
+        List<StatusEntity> statuses = statusRepository.findByType("upcoming");
+        Assert.assertNotNull(statuses);
+        Assert.assertEquals(statuses.get(0).getName(), "upcoming");
+    }
 
 }

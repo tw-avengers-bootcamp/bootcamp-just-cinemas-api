@@ -2,6 +2,7 @@ package spiciniemas.api.service;
 
 
 import java.util.ArrayList;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,31 +21,33 @@ import spicinemas.api.db.LocationRepository;
 import spicinemas.api.db.entities.LocationEntity;
 import spicinemas.api.service.LocationService;
 
+import javax.validation.constraints.AssertTrue;
+
 @RunWith(JUnit4.class)
 @ContextConfiguration(classes = LocationService.class)
 public class LocationServiceTest {
 
 
-
-  LocationRepository locationRepository;
-
+    private LocationRepository locationRepository;
 
 
-  @Before
-  public void init() {
-    locationRepository= Mockito.mock(LocationRepository.class);
-    ArrayList<LocationEntity> locationEntities=new ArrayList<>();
-    LocationEntity locationEntity=new LocationEntity();
-    locationEntity.setId(1L);
-    locationEntity.setName("test location");
-    locationEntities.add(locationEntity);
-    Mockito.when(locationRepository.findAll()).thenReturn(locationEntities);
-  }
+    @Before
+    public void init() {
+        locationRepository = Mockito.mock(LocationRepository.class);
+        ArrayList<LocationEntity> locationEntities = new ArrayList<>();
+        LocationEntity locationEntity = new LocationEntity();
+        locationEntity.setId(1L);
+        locationEntity.setName("test location");
+        locationEntities.add(locationEntity);
+        Mockito.when(locationRepository.findAll()).thenReturn(locationEntities);
+    }
 
-  @Test
-    public void testGetLocations(){
+    @Test
+    public void testGetLocations() {
 
-    LocationService locationService=new LocationService(locationRepository);
-    Assert.assertNotNull(locationService.getLocations().size()>0);
+        LocationService locationService = new LocationService(locationRepository);
+        Assert.assertNotNull(locationService.getLocations());
+        Assert.assertTrue(locationService.getLocations().size() > 0);
+        Assert.assertEquals(locationService.getLocations().get(0).getName(), "test location");
     }
 }
