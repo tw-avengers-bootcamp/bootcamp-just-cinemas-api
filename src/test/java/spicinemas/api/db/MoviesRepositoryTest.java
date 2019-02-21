@@ -36,24 +36,24 @@ public class MoviesRepositoryTest {
   StatusRepository statusRepository;
 
   @Test
-  public void testIfMovieDataLoaded(){
-    Assert.assertTrue(moviesRepository.count()>0);
+  public void testIfMovieDataLoaded() {
+    Assert.assertTrue(moviesRepository.count() > 0);
   }
 
   @Test
-  public void checkStatus(){
-    Assert.assertTrue(moviesRepository.findOne(1L).getStatus()!=null);
+  public void checkStatus() {
+    Assert.assertTrue(moviesRepository.findOne(1L).getStatus() != null);
   }
 
   @Test
-  public void checkForLocation(){
+  public void checkForLocation() {
 
-    MovieEntity movieEntity=new MovieEntity();
-    LanguageEntity languageEntity =new LanguageEntity();
+    MovieEntity movieEntity = new MovieEntity();
+    LanguageEntity languageEntity = new LanguageEntity();
     movieEntity.setLanguage(languageRepository.findOne(1L));
     movieEntity.setName("test");
     movieEntity.setSynopsis("test");
-    movieEntity.setLocations(new HashSet(){
+    movieEntity.setLocations(new HashSet() {
       @Override
       public boolean add(Object o) {
         return this.add(locationRepository.findOne(1L));
@@ -61,52 +61,54 @@ public class MoviesRepositoryTest {
       }
     });
 
-
     moviesRepository.save(movieEntity);
-    Assert.assertTrue(moviesRepository.findOne(1L).getLocations().size()>0);
-    Assert.assertTrue(moviesRepository.findOne(1L).getLocations()!=null);
+    Assert.assertTrue(moviesRepository.findOne(1L).getLocations().size() > 0);
+    Assert.assertTrue(moviesRepository.findOne(1L).getLocations() != null);
   }
 
   @Test
-  public void checkForTrailers(){
-    Set<TrailerEntity> trailers=moviesRepository.findOne(1L).getTrailers();
+  public void checkForTrailers() {
+    Set<TrailerEntity> trailers = moviesRepository.findOne(1L).getTrailers();
     Assert.assertNotNull(trailers);
   }
+
   @Test
-  public void checkForStills(){
-    Set<StillEntity> stills=moviesRepository.findOne(1L).getStills();
+  public void checkForStills() {
+    Set<StillEntity> stills = moviesRepository.findOne(1L).getStills();
     Assert.assertNotNull(stills);
   }
 
   @Test
-  public void checkForExperience(){
-    ExperienceEntity experienceEntity=moviesRepository.findOne(1L).getExperienceEntity();
+  public void checkForExperience() {
+    ExperienceEntity experienceEntity = moviesRepository.findOne(1L).getExperienceEntity();
     Assert.assertNotNull(experienceEntity);
   }
 
   @Test
-  public void checkfindByLocationLanguageAndStatus(){
+  public void checkfindByLocationLanguageAndStatus() {
 
-    Set<LocationEntity> locationEntities =locationRepository.findByName("Chennai");
-    Assert.assertNotNull(locationEntities.size()>0);
-      List<LanguageEntity> languageEntities = languageRepository.findByName("Tamil");
-      Assert.assertNotNull(languageEntities.size()>0);
-      LanguageEntity tamil=languageEntities.get(0);
-      StatusEntity statusEntity = statusRepository.findOne(1L);
-      MovieEntity movieEntity = moviesRepository.findByLocationsAndLanguageAndStatus(locationEntities,tamil, statusEntity).get(0);
-      Assert.assertNotNull(movieEntity);
+    Set<LocationEntity> locationEntities = locationRepository.findByName("Chennai");
+    Assert.assertNotNull(locationEntities.size() > 0);
+    List<LanguageEntity> languageEntities = languageRepository.findByName("Tamil");
+    Assert.assertNotNull(languageEntities.size() > 0);
+    LanguageEntity tamil = languageEntities.get(0);
+    StatusEntity statusEntity = statusRepository.findOne(1L);
+    MovieEntity movieEntity = moviesRepository
+        .findByLocationsAndLanguageAndStatus(locationEntities, tamil, statusEntity).get(0);
+    Assert.assertNotNull(movieEntity);
   }
 
   @Test
-  public void checkfindByLocationAndStatus(){
+  public void checkfindByLocationAndStatus() {
 
-    Set<LocationEntity> locationEntities =locationRepository.findByName("Chennai");
-    Assert.assertNotNull(locationEntities.size()>0);
+    Set<LocationEntity> locationEntities = locationRepository.findByName("Chennai");
+    Assert.assertNotNull(locationEntities.size() > 0);
     List<LanguageEntity> languageEntities = languageRepository.findByName("Tamil");
-    Assert.assertNotNull(languageEntities.size()>0);
-    LanguageEntity tamil=languageEntities.get(0);
+    Assert.assertNotNull(languageEntities.size() > 0);
+    LanguageEntity tamil = languageEntities.get(0);
     StatusEntity statusEntity = statusRepository.findOne(1L);
-    MovieEntity movieEntity = moviesRepository.findByLocationsAndStatus(locationEntities, statusEntity).get(0);
+    MovieEntity movieEntity = moviesRepository
+        .findByLocationsAndStatus(locationEntities, statusEntity).get(0);
     Assert.assertNotNull(movieEntity);
   }
 }

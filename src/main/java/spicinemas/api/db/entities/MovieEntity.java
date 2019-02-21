@@ -1,6 +1,5 @@
 package spicinemas.api.db.entities;
 
-import java.util.List;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -35,6 +34,7 @@ public class MovieEntity {
 
   )
   private Set<LocationEntity> locations;
+
 
   @OneToMany(fetch = FetchType.EAGER,mappedBy = "movieEntity")
   private Set<TrailerEntity> trailers;
@@ -132,4 +132,6 @@ public class MovieEntity {
   public void setBanner(String banner) {
     this.banner = banner;
   }
+
+
 }
