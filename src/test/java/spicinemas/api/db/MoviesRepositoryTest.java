@@ -85,7 +85,7 @@ public class MoviesRepositoryTest {
   }
 
   @Test
-  public void checkfindByLocationLanguageAndStatus(){
+  public void checkFindByLocationLanguageAndStatus(){
 
     Set<LocationEntity> locationEntities =locationRepository.findByName("Chennai");
     Assert.assertNotNull(locationEntities.size()>0);
@@ -98,7 +98,7 @@ public class MoviesRepositoryTest {
   }
 
   @Test
-  public void checkfindByLocationAndStatus(){
+  public void checkFindByLocationAndStatus(){
 
     Set<LocationEntity> locationEntities =locationRepository.findByName("Chennai");
     Assert.assertNotNull(locationEntities.size()>0);

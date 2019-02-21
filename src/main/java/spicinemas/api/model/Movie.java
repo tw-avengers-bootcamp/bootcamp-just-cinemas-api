@@ -1,8 +1,12 @@
 package spicinemas.api.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.EqualsAndHashCode;
 
+import java.util.List;
+
 @EqualsAndHashCode(exclude = {"id"})
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Movie {
     private Long id;
     private String name;
@@ -12,6 +16,8 @@ public class Movie {
     private String bannerUrl;
     private Language language;
     private String listingType;
+    private List<Still> stills;
+    private List<Trailer> trailers;
 
     public Movie(String name, String experiences) {
         this.name = name;
@@ -80,5 +86,21 @@ public class Movie {
 
     public void setListingType(String listingType) {
         this.listingType = listingType;
+    }
+
+    public List<Still> getStills() {
+        return stills;
+    }
+
+    public void setStills(List<Still> stills) {
+        this.stills = stills;
+    }
+
+    public List<Trailer> getTrailers() {
+        return trailers;
+    }
+
+    public void setTrailers(List<Trailer> trailers) {
+        this.trailers = trailers;
     }
 }
