@@ -14,6 +14,7 @@ public class TicketEntity {
   private Long id;
 
   private String ticketNo;
+
   private String email;
 
   @ManyToOne

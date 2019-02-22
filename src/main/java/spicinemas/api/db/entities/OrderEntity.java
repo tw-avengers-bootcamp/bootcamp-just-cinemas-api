@@ -1,11 +1,16 @@
 package spicinemas.api.db.entities;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.UUID;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity(name = "orders")
 public class OrderEntity {
@@ -18,7 +23,15 @@ public class OrderEntity {
   private ShowEntity show;
   private Long seats;
   private String email;
-  private LocalDate orderDate;
+  @Column(name="order_date")
+  @CreationTimestamp
+  private Timestamp orderDate;
+
+
+  @GenericGenerator(name = "uuid", strategy = "uuid2")
+  @GeneratedValue(generator = "uuid")
+  private String orderNo;
+
 
   public Long getSeats() {
     return seats;
@@ -36,11 +49,11 @@ public class OrderEntity {
     this.email = email;
   }
 
-  public LocalDate getOrderDate() {
+  public Timestamp getOrderDate() {
     return orderDate;
   }
 
-  public void setOrderDate(LocalDate orderDate) {
+  public void setOrderDate(Timestamp orderDate) {
     this.orderDate = orderDate;
   }
 
@@ -50,5 +63,21 @@ public class OrderEntity {
 
   public void setShow(ShowEntity show) {
     this.show = show;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getOrderNo() {
+    return orderNo;
+  }
+
+  public void setOrderNo(String orderNo) {
+    this.orderNo = orderNo;
   }
 }

@@ -1,8 +1,14 @@
 package spicinemas.api.db.entities;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
@@ -12,6 +18,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity(name = "show")
 public class ShowEntity {
@@ -21,15 +32,18 @@ public class ShowEntity {
   private Long id;
 
 
-  private int maxSeats;
-  private int amount;
-  private LocalDate showDate;
+  private Long maxSeats;
+  private Long amount;
+
+  @Column(name = "show_date")
+  @CreationTimestamp
+  private Timestamp showDate;
 
   @OneToMany(fetch = FetchType.EAGER, mappedBy = "show")
   private Set<OrderEntity> orders;
 
-  @JoinColumn(name = "movie_location_id",foreignKey=@ForeignKey(name = "Fk_movie"))
-  @OneToOne
+  @JoinColumn(referencedColumnName = "id")
+  @OneToOne(cascade = CascadeType.ALL)
   private MovieLocationEntity movieLocation;
 
   public Long getId() {
@@ -42,27 +56,27 @@ public class ShowEntity {
 
 
 
-  public int getMaxSeats() {
+  public Long getMaxSeats() {
     return maxSeats;
   }
 
-  public void setMaxSeats(int maxSeats) {
+  public void setMaxSeats(Long maxSeats) {
     this.maxSeats = maxSeats;
   }
 
-  public int getAmount() {
+  public Long getAmount() {
     return amount;
   }
 
-  public void setAmount(int amount) {
+  public void setAmount(Long amount) {
     this.amount = amount;
   }
 
-  public LocalDate getShowDate() {
+  public Timestamp getShowDate() {
     return showDate;
   }
 
-  public void setShowDate(LocalDate showDate) {
+  public void setShowDate(Timestamp showDate) {
     this.showDate = showDate;
   }
 

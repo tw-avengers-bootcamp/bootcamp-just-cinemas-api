@@ -6,13 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.Null;
 
-@Entity(name = "movie_location")
+@Entity(name = "movielocation")
 public class MovieLocationEntity {
 
   @Id
   @GeneratedValue
+  @Column(name = "id")
   private Long id;
 
   @OneToOne

@@ -35,10 +35,10 @@ INSERT INTO Movie(name, synopsis, rating, status_id, language_id, banner_url) VA
 
 INSERT INTO Movie(name, synopsis, rating, status_id, language_id, banner_url) VALUES('Pink', ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tortor est, feugiat sit amet sagittis nec, viverra vehicula orci. Sed pulvinar imperdiet nunc vel fringilla. In ac facilisis orci. Ut suscipit nisl scelerisque elit finibus, sed auctor velit placerat. Mauris et lacus in felis finibus dictum vel non mauris. Integer feugiat augue vitae mauris ultricies sodales. Nam semper tincidunt viverra. Aliquam pellentesque dolor nec tortor semper, sed rhoncus magna tincidunt.', 5, 1, 2, 'https://img.spicinemas.in/resources/images/movies/Pink/1000x320.jpg');
 
-INSERT INTO Movie_Location(movie_id, location_id) VALUES(1, 1);
-INSERT INTO Movie_Location(movie_id, location_id) VALUES(2, 2);
-INSERT INTO Movie_Location(movie_id, location_id) VALUES(1, 3);
-INSERT INTO Movie_Location(movie_id, location_id) VALUES(3, 4);
+INSERT INTO movielocation(movie_id, location_id) VALUES(1, 1);
+INSERT INTO movielocation(movie_id, location_id) VALUES(2, 2);
+INSERT INTO movielocation(movie_id, location_id) VALUES(1, 3);
+INSERT INTO movielocation(movie_id, location_id) VALUES(3, 4);
 
 INSERT INTO Experience(id, type,movie_id) VALUES(1,'RDX, Dolby Atmos, SUB',1);
 INSERT INTO Experience(id, type,movie_id) VALUES(2,'RDX 3D',2);

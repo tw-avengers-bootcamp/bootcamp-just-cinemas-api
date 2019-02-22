@@ -54,8 +54,8 @@ CREATE TABLE IF NOT EXISTS Experience (
 DROP TABLE IF EXISTS Banner CASCADE;
 
 
-DROP TABLE IF EXISTS Movie_Location CASCADE;
-CREATE TABLE IF NOT EXISTS Movie_Location (
+DROP TABLE IF EXISTS movielocation CASCADE;
+CREATE TABLE IF NOT EXISTS movielocation (
        id serial PRIMARY KEY,
        movie_id INTEGER REFERENCES movie(id),
        location_id INTEGER REFERENCES location(id),

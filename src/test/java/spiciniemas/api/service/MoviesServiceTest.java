@@ -24,6 +24,7 @@ public class MoviesServiceTest {
      LocationRepository locationRepository;
      StatusRepository statusRepository;
 
+
     @Before
     public void init() {
         moviesRepository = Mockito.mock(MoviesRepository.class);
@@ -48,7 +49,6 @@ public class MoviesServiceTest {
         movieEntity.setSynopsis("abcd synopsis");
         movieEntity.setName("Kabaali");
         movieEntity.setLanguage(languageEntity);
-        movieEntity.setLocations(locationEntities);
         movieEntity.setStatus(statusEntity);
         movieEntity.setExperienceEntity(experienceEntity);
 
