@@ -1,25 +1,17 @@
 package spicinemas.api.service;
 
 import org.springframework.stereotype.Service;
-
 import spicinemas.api.db.LocationRepository;
-import spicinemas.api.db.MovieLocationRepository;
 import spicinemas.api.db.MoviesRepository;
 import spicinemas.api.db.StatusRepository;
-import spicinemas.api.db.entities.LocationEntity;
-import spicinemas.api.db.entities.MovieEntity;
-import spicinemas.api.db.entities.StatusEntity;
-import spicinemas.api.db.entities.StillEntity;
-import spicinemas.api.db.entities.TrailerEntity;
+import spicinemas.api.db.entities.*;
 import spicinemas.api.model.Language;
 import spicinemas.api.model.Movie;
 import spicinemas.api.model.Still;
 import spicinemas.api.model.Trailer;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -90,7 +82,7 @@ public class MovieService {
            movie.setSynopsis(m.getSynopsis());
            movie.setRating(m.getRating());
            movie.setBannerUrl(m.getBanner());
-            movie.setIconUrl(m.getIconUrl());
+           movie.setIconUrl(m.getIconUrl());
            movie.setExperiences(m.getExperienceEntity().getType());
            movie.setListingType(m.getStatus().getName());
            return movie;
