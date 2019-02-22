@@ -69,13 +69,16 @@ public class MovieBuilder {
     }
 
     MovieBuilder setNewLocation(long id, String location) {
-        if (movie.getLocations() == null) {
+        if (movie.getMovieLocations() == null) {
             movie.setLocations(new HashSet<>());
         }
         LocationEntity locationEntity = new LocationEntity();
         locationEntity.setId(id);
         locationEntity.setName(location);
-        movie.getLocations().add(locationEntity);
+        MovieLocationEntity ml=new MovieLocationEntity();
+        ml.setMovie(movie);
+        ml.setLocation(locationEntity);
+        movie.getMovieLocations().add(ml);
         return this;
     }
 

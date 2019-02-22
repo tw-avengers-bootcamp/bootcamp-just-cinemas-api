@@ -3,9 +3,14 @@ package spicinemas.api.service;
 import org.springframework.stereotype.Service;
 
 import spicinemas.api.db.LocationRepository;
+import spicinemas.api.db.MovieLocationRepository;
 import spicinemas.api.db.MoviesRepository;
 import spicinemas.api.db.StatusRepository;
-import spicinemas.api.db.entities.*;
+import spicinemas.api.db.entities.LocationEntity;
+import spicinemas.api.db.entities.MovieEntity;
+import spicinemas.api.db.entities.StatusEntity;
+import spicinemas.api.db.entities.StillEntity;
+import spicinemas.api.db.entities.TrailerEntity;
 import spicinemas.api.model.Language;
 import spicinemas.api.model.Movie;
 import spicinemas.api.model.Still;
@@ -77,10 +82,7 @@ public class MovieService {
     public List<Movie> getMoviesByLocationAndStatus(Long locationId, String statusName) {
         LocationEntity location = locationRepository.findOne(locationId);
         StatusEntity status = statusRepository.findOne(1L);
-        Set<LocationEntity> locationSet = new HashSet<>();
-        locationSet.add(location);
-        List<MovieEntity> movieEntities = moviesRepository.findByLocationsAndStatus(locationSet, status);
-
+        List<MovieEntity> movieEntities = moviesRepository.findByMovieLocationsAndStatus(location,status);
         return movieEntities.stream().map((m) -> {
            Movie movie = new Movie();
            movie.setName(m.getName());
@@ -91,7 +93,6 @@ public class MovieService {
             movie.setIconUrl(m.getIconUrl());
            movie.setExperiences(m.getExperienceEntity().getType());
            movie.setListingType(m.getStatus().getName());
-
            return movie;
         }).collect(Collectors.toList());
     }

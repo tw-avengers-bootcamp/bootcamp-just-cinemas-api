@@ -28,14 +28,9 @@ public class MovieEntity {
   private StatusEntity status;
 
 
-  @OneToMany(targetEntity = LocationEntity.class,fetch = FetchType.EAGER)
-  @JoinTable(
-      name="Movie_Location",
-      joinColumns = @JoinColumn( name="movie_id"),
-      inverseJoinColumns = @JoinColumn( name="location_id")
+  @OneToMany(targetEntity = MovieLocationEntity.class,fetch = FetchType.EAGER,mappedBy = "movie")
+  private Set<MovieLocationEntity> movieLocations;
 
-  )
-  private Set<LocationEntity> locations;
 
   @OneToMany(fetch = FetchType.EAGER,mappedBy = "movieEntity")
   private Set<TrailerEntity> trailers;
@@ -70,12 +65,12 @@ public class MovieEntity {
     this.status = status;
   }
 
-  public Set<LocationEntity> getLocations() {
-    return locations;
+  public Set<MovieLocationEntity> getMovieLocations() {
+    return movieLocations;
   }
 
-  public void setLocations(Set<LocationEntity> locations) {
-    this.locations = locations;
+  public void setLocations(Set<MovieLocationEntity> locations) {
+    this.movieLocations = locations;
   }
 
   public String getName() {

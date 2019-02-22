@@ -27,36 +27,36 @@ INSERT INTO Movie(name, synopsis, rating, status_id, language_id, banner_url) VA
 
 
 --------
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 1 from Movie where name = 'Kabali2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 2 from Movie where name = 'Kabali2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 3 from Movie where name = 'Kabali2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 4 from Movie where name = 'Kabali2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 1 from Movie where name = 'Kabali2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 2 from Movie where name = 'Kabali2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 3 from Movie where name = 'Kabali2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 4 from Movie where name = 'Kabali2';
 --
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 1 from Movie where name = 'Sultan2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 2 from Movie where name = 'Sultan2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 3 from Movie where name = 'Sultan2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 4 from Movie where name = 'Sultan2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 1 from Movie where name = 'Sultan2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 2 from Movie where name = 'Sultan2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 3 from Movie where name = 'Sultan2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 4 from Movie where name = 'Sultan2';
 --
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 1 from Movie where name = 'Banjo2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 2 from Movie where name = 'Banjo2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 3 from Movie where name = 'Banjo2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 4 from Movie where name = 'Banjo2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 1 from Movie where name = 'Banjo2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 2 from Movie where name = 'Banjo2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 3 from Movie where name = 'Banjo2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 4 from Movie where name = 'Banjo2';
 
 --
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 1 from Movie where name = 'Suicide2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 2 from Movie where name = 'Suicide2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 3 from Movie where name = 'Suicide2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 4 from Movie where name = 'Suicide2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 1 from Movie where name = 'Suicide2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 2 from Movie where name = 'Suicide2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 3 from Movie where name = 'Suicide2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 4 from Movie where name = 'Suicide2';
 --
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 1 from Movie where name = 'Namadhu2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 2 from Movie where name = 'Namadhu2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 3 from Movie where name = 'Namadhu2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 4 from Movie where name = 'Namadhu2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 1 from Movie where name = 'Namadhu2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 2 from Movie where name = 'Namadhu2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 3 from Movie where name = 'Namadhu2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 4 from Movie where name = 'Namadhu2';
 --
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 1 from Movie where name = 'Pink2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 2 from Movie where name = 'Pink2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 3 from Movie where name = 'Pink2';
-INSERT INTO Movie_Location(movie_id, location_id) select Movie.id, 4 from Movie where name = 'Pink2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 1 from Movie where name = 'Pink2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 2 from Movie where name = 'Pink2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 3 from Movie where name = 'Pink2';
+INSERT INTO movielocation(movie_id, location_id) select Movie.id, 4 from Movie where name = 'Pink2';
 
 
 INSERT INTO Experience(id, type,movie_id) select 7,'RDX, Dolby Atmos, SUB',Movie.id from Movie where name = 'Kabali2';
