@@ -1,51 +1,25 @@
 package spicinemas.api.controller;
 
-
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.List;
-import spicinemas.api.db.LocationRepository;
-import spicinemas.api.db.MovieLocationRepository;
-import spicinemas.api.db.MoviesRepository;
-import spicinemas.api.db.ShowRepository;
-import spicinemas.api.db.StatusRepository;
-import spicinemas.api.db.entities.LocationEntity;
-import spicinemas.api.db.entities.MovieEntity;
-import spicinemas.api.db.entities.MovieLocationEntity;
-import spicinemas.api.db.entities.ShowEntity;
-import spicinemas.api.db.entities.StatusEntity;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import spicinemas.api.model.Show;
+import spicinemas.api.service.ShowService;
 
+import java.util.List;
+
+@RestController
 public class ShowController {
-    private MovieLocationRepository movieLocationRepository;
-    private MoviesRepository moviesRepository;
-    private LocationRepository locationRepository;
-    private ShowRepository showRepository;
-    private StatusRepository statusRepository;
 
+    @Autowired
+    private ShowService showService;
 
-  public ShowController(MovieLocationRepository movieLocationRepository,MoviesRepository moviesRepository, LocationRepository locationRepository,
-      ShowRepository showRepository, StatusRepository statusRepository) {
-      this.moviesRepository=moviesRepository;
-      this.locationRepository=locationRepository;
-      this.showRepository=showRepository;
-      this.statusRepository=statusRepository;
-      this.movieLocationRepository=movieLocationRepository;
-
-  }
-
-  public List<Show> getShows(Long movieId,Long statusId,Long locationId){
-    StatusEntity statusEntity = statusRepository.findOne(statusId);
-    MovieEntity movieEntity = moviesRepository.findOne(locationId);
-    LocationEntity locationEntity= locationRepository.findOne(locationId);
-    MovieLocationEntity movieLocationEntity = movieLocationRepository.findByLocationAndMovie(locationEntity,movieEntity);
-    Timestamp todaysDate= Timestamp.valueOf(LocalDateTime.now().toLocalDate().atStartOfDay());
-    List<ShowEntity> showEntities= showRepository.findByMovieLocationAndStatus(movieLocationEntity,statusEntity,todaysDate);
-    return  null;
-  }
-
-
-
-
+    @RequestMapping(value = "/v1/show/{id}/{location}/{status}",
+            method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Show> getMovieDetail(@PathVariable("id") long movie_id, long locationId, String status) {
+        return showService.getShows(movie_id,status,locationId);
+    }
 }
