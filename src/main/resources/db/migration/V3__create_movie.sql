@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS Status CASCADE;
 CREATE TABLE IF NOT EXISTS Status (
        id serial PRIMARY KEY,
-       type VARCHAR(25) CHECK (type IN ('now showing', 'upcoming'))
+       type VARCHAR(25) CHECK (type IN ('now-showing', 'upcoming'))
 );
 
 DROP TABLE IF EXISTS Location CASCADE;

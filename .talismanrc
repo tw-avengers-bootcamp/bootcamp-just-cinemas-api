@@ -1,4 +1,4 @@
 fileignoreconfig:
-- filename: src/main/resources/db/migration/V4__insert_movie.sql
-  checksum: c6c514f5bd8cc911e3b2d908b26ed3869c01a50f6eb50bc3bb05cae01cba667d
+- filename: src/main/resources/db/migration/V3__create_movie.sql
+  checksum: 0cacd7f9e971279d816b8592be11a98ccd7322777f9e1657ef5dd0c853338327
   ignore_detectors: []
