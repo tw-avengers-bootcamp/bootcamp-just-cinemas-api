@@ -68,10 +68,9 @@ task dropAll(){
 		}
 		
 	}
-
 }
 if(cleanflyway.equals("true")){
-	     println("droping all schemas")
-		dropAll.finalizedBy(flywayClean);
+	println("droping all schemas")
+	dropAll.finalizedBy(flywayClean);
 }
 

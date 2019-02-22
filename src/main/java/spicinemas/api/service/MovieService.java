@@ -81,8 +81,8 @@ public class MovieService {
 
     public List<Movie> getMoviesByLocationAndStatus(Long locationId, String statusName) {
         LocationEntity location = locationRepository.findOne(locationId);
-        StatusEntity status = statusRepository.findOne(1L);
-        List<MovieEntity> movieEntities = moviesRepository.findByMovieLocationsAndStatus(location,status);
+        List<StatusEntity> status = statusRepository.findByType(statusName);
+        List<MovieEntity> movieEntities = moviesRepository.findByMovieLocationsAndStatus(location,status.get(0));
         return movieEntities.stream().map((m) -> {
            Movie movie = new Movie();
            movie.setName(m.getName());

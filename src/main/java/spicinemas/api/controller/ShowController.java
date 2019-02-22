@@ -1,6 +1,9 @@
 package spicinemas.api.controller;
 
 
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 import spicinemas.api.db.LocationRepository;
 import spicinemas.api.db.MovieLocationRepository;
@@ -10,6 +13,7 @@ import spicinemas.api.db.StatusRepository;
 import spicinemas.api.db.entities.LocationEntity;
 import spicinemas.api.db.entities.MovieEntity;
 import spicinemas.api.db.entities.MovieLocationEntity;
+import spicinemas.api.db.entities.ShowEntity;
 import spicinemas.api.db.entities.StatusEntity;
 import spicinemas.api.model.Show;
 
@@ -36,6 +40,8 @@ public class ShowController {
     MovieEntity movieEntity = moviesRepository.findOne(locationId);
     LocationEntity locationEntity= locationRepository.findOne(locationId);
     MovieLocationEntity movieLocationEntity = movieLocationRepository.findByLocationAndMovie(locationEntity,movieEntity);
+    Timestamp todaysDate= Timestamp.valueOf(LocalDateTime.now().toLocalDate().atStartOfDay());
+    List<ShowEntity> showEntities= showRepository.findByMovieLocationAndStatus(movieLocationEntity,statusEntity,todaysDate);
     return  null;
   }
 
