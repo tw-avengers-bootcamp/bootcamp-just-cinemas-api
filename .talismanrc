@@ -1,7 +1,16 @@
 fileignoreconfig:
-- filename: src/main/resources/db/migration/V7__add_icon_url.sql
-  checksum: 6266923424ed9eae24819b9ee67a87bd84c680aafe84712f6dcf0569b294cd3e
+- filename: src/main/resources/db/migration/V9__tickets_ddl.sql
+  checksum: 9f6771d375524b10c5a1466a456ab36c6a01c611cf576667f892866b1bb7b214
   ignore_detectors: []
-- filename: src/main/resources/db/migration/V8__update_icon_url_data.sql
-  checksum: 88ffb81ce575b3b6d896af815e2e80a4e555f2c7d942caefa7fa65740ba38a46
+- filename: src/main/resources/db/migration/V3__create_movie.sql
+  checksum: 1cdba44746201458a3b3d6887b57760dff2cb10b48d17aff536a223086a4f648
+  ignore_detectors: []
+- filename: src/main/resources/db/migration/V4__insert_movie.sql
+  checksum: aaa5e063b91ad3450bf5d327429fdab3417eebafca761da03a8e2863f8727f60
+  ignore_detectors: []
+- filename: src/main/resources/db/migration/V5__insert_more_movies.sql
+  checksum: 70837436c6d237935343de897f7db9cc393914b240a55430ea48ca8611fbf260
+  ignore_detectors: []
+- filename: src/main/resources/db/migration/V6__update_movies.sql
+  checksum: 5d003175e6626dccf4abcbeaef054ed917af7c7f6500c9805a5d52f238274c8d
   ignore_detectors: []

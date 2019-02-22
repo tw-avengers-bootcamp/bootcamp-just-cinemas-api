@@ -2,6 +2,7 @@ package spicinemas.api.db;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import org.junit.Assert;
@@ -18,6 +19,8 @@ import spicinemas.api.db.entities.MovieEntity;
 import spicinemas.api.db.entities.MovieLocationEntity;
 import spicinemas.api.db.entities.OrderEntity;
 import spicinemas.api.db.entities.ShowEntity;
+import spicinemas.api.db.entities.StatusEntity;
+import spicinemas.api.model.Status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpiCinemasApplication.class)
@@ -54,6 +57,19 @@ public class ShowRepositoryTest {
     Assert.assertNotNull(showEntityResult.getId());
     Assert.assertEquals(showEntityResult.getShowDate().toLocalDateTime().toLocalDate().atStartOfDay(),LocalDate.now().atStartOfDay());
   }
+
+  @Test
+  @Transactional
+  public void testfindByMovieLocationAndStatus(){
+    MovieLocationEntity movieLocationEntity=movieLocationRepository.findOne(1L);
+    StatusEntity statusEntity = movieLocationEntity.getMovie().getStatus();
+    ShowEntity showEntity = new ShowEntity();
+    showEntity.setMovieLocation(movieLocationEntity);
+    showRepository.save(showEntity);
+    Assert.assertNotNull(showRepository.findByMovieLocationAndStatus(movieLocationEntity,statusEntity,Timestamp.valueOf(
+        LocalDateTime.now().toLocalDate().atStartOfDay())));
+  }
+
 
 
 }
