@@ -1,4 +1,4 @@
 fileignoreconfig:
-- filename: build.gradle
-  checksum: a7cfb2a4a65bd274645d17844d149cd6d5ae8ea568586c71f8218efbe3b32550
+- filename: src/main/resources/db/migration/V4__insert_movie.sql
+  checksum: c6c514f5bd8cc911e3b2d908b26ed3869c01a50f6eb50bc3bb05cae01cba667d
   ignore_detectors: []

@@ -1,4 +1,4 @@
-INSERT INTO Status(id, type) VALUES (1, 'now showing');
+INSERT INTO Status(id, type) VALUES (1, 'now-showing');
 INSERT INTO Status(id, type) VALUES (2, 'upcoming');
 
 INSERT INTO Location(id, name) VALUES (1, 'Chennai');
